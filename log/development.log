@@ -6591,3 +6591,264 @@ Started GET "/" for 127.0.0.1 at 2018-01-07 16:30:28 -0300
 Processing by HomeController#index as HTML
   Rendered home/index.html.erb within layouts/application (0.3ms)
 Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (88.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (66.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateKinds (20180107070517)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "kinds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180107070517"]]
+  [1m[35m (77.9ms)[0m  commit transaction
+Migrating to CreateContacts (20180107070536)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "email" varchar, "kind_id" integer, "rmk" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_contacts_on_kind_id" ON "contacts" ("kind_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180107070536"]]
+  [1m[36m (63.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAddresses (20180107070558)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "addresses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "street" varchar, "city" varchar, "state" varchar, "contact_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_addresses_on_contact_id" ON "addresses" ("contact_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180107070558"]]
+  [1m[35m (64.0ms)[0m  commit transaction
+Migrating to CreatePhones (20180107070617)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "phones" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "phone" varchar, "contact_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_phones_on_contact_id" ON "phones" ("contact_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180107070617"]]
+  [1m[36m (74.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_addresses_on_contact_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_addresses_on_contact_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_contacts_on_kind_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_contacts_on_kind_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_phones_on_contact_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_phones_on_contact_id' AND type='index'
+[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "kinds" ("description", "created_at", "updated_at") VALUES (?, ?, ?)  [["description", "Amigo"], ["created_at", "2018-01-07 22:59:07.113625"], ["updated_at", "2018-01-07 22:59:07.113625"]]
+  [1m[36m (52.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "kinds" ("description", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["description", "Contato"], ["created_at", "2018-01-07 22:59:07.167528"], ["updated_at", "2018-01-07 22:59:07.167528"]]
+  [1m[35m (53.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "kinds" ("description", "created_at", "updated_at") VALUES (?, ?, ?)  [["description", "Comercial"], ["created_at", "2018-01-07 22:59:07.223152"], ["updated_at", "2018-01-07 22:59:07.223152"]]
+  [1m[36m (53.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.1ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (72.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (77.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateKinds (20180107070517)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "kinds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180107070517"]]
+  [1m[35m (118.2ms)[0m  commit transaction
+Migrating to CreateContacts (20180107070536)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "email" varchar, "kind_id" integer, "rmk" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_contacts_on_kind_id" ON "contacts" ("kind_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180107070536"]]
+  [1m[36m (76.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAddresses (20180107070558)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "addresses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "street" varchar, "city" varchar, "state" varchar, "contact_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_addresses_on_contact_id" ON "addresses" ("contact_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180107070558"]]
+  [1m[35m (96.4ms)[0m  commit transaction
+Migrating to CreatePhones (20180107070617)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "phones" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "phone" varchar, "contact_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_phones_on_contact_id" ON "phones" ("contact_id")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180107070617"]]
+  [1m[36m (73.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_addresses_on_contact_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_addresses_on_contact_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_contacts_on_kind_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_contacts_on_kind_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_phones_on_contact_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_phones_on_contact_id' AND type='index'
+[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "kinds" ("description", "created_at", "updated_at") VALUES (?, ?, ?)  [["description", "Amigo"], ["created_at", "2018-01-07 23:00:24.803999"], ["updated_at", "2018-01-07 23:00:24.803999"]]
+  [1m[36m (87.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "kinds" ("description", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["description", "Contato"], ["created_at", "2018-01-07 23:00:24.894006"], ["updated_at", "2018-01-07 23:00:24.894006"]]
+  [1m[35m (53.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "kinds" ("description", "created_at", "updated_at") VALUES (?, ?, ?)  [["description", "Comercial"], ["created_at", "2018-01-07 23:00:24.948807"], ["updated_at", "2018-01-07 23:00:24.948807"]]
+  [1m[36m (64.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.1ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Vada Prosacco"], ["email", "uriah@hodkiewicz.info"], ["kind_id", 1], ["rmk", "Saepe sed et rem. Ea aut sint odio ullam quia natus dicta. Quia voluptatem hic reprehenderit et dolor quis."], ["created_at", "2018-01-07 23:00:25.456980"], ["updated_at", "2018-01-07 23:00:25.456980"]]
+  [1m[36m (55.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Rosalia Adams"], ["email", "zula_gottlieb@schadenyost.biz"], ["kind_id", 2], ["rmk", "Deleniti consequatur cum doloremque. Perspiciatis cumque placeat sed. Iste enim mollitia veritatis."], ["created_at", "2018-01-07 23:00:25.516548"], ["updated_at", "2018-01-07 23:00:25.516548"]]
+  [1m[36m (73.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.3ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Reggie Grant V"], ["email", "dorothy_abshire@gleason.co"], ["kind_id", 2], ["rmk", "Eaque et adipisci repellendus et voluptatem. Corrupti perspiciatis at sapiente. Dolorem temporibus illo."], ["created_at", "2018-01-07 23:00:25.594463"], ["updated_at", "2018-01-07 23:00:25.594463"]]
+  [1m[36m (51.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Luella Heidenreich"], ["email", "ollie@lakinrogahn.co"], ["kind_id", 1], ["rmk", "Voluptatem neque corporis distinctio porro. Aut saepe delectus omnis. Voluptatum quo voluptas. Quod voluptate possimus quia nostrum. Eum sit praesentium est eligendi."], ["created_at", "2018-01-07 23:00:25.649090"], ["updated_at", "2018-01-07 23:00:25.649090"]]
+  [1m[36m (63.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Jovani Kuvalis"], ["email", "ardith@ziemann.biz"], ["kind_id", 1], ["rmk", "Aut facilis voluptatibus ut dignissimos unde aut. Voluptas porro ut dolor ullam eum fuga. Sint autem at et."], ["created_at", "2018-01-07 23:00:25.715570"], ["updated_at", "2018-01-07 23:00:25.715570"]]
+  [1m[36m (52.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Dr. Johnnie Runolfsdottir"], ["email", "cristal@botsford.biz"], ["kind_id", 2], ["rmk", "Ut vitae veniam veritatis minus ut voluptas qui. Sunt consequatur ut officiis unde possimus et. Voluptatem aut repudiandae atque. Officiis consequatur mollitia porro ut. Non doloremque voluptas laboriosam culpa soluta quia."], ["created_at", "2018-01-07 23:00:25.772173"], ["updated_at", "2018-01-07 23:00:25.772173"]]
+  [1m[36m (61.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Darion Marquardt"], ["email", "gabriel@mccullough.info"], ["kind_id", 2], ["rmk", "Libero ut enim pariatur deleniti recusandae. Laboriosam quia maxime qui sint. Nisi laudantium velit rem debitis non et. Et animi corrupti blanditiis amet a beatae."], ["created_at", "2018-01-07 23:00:25.837668"], ["updated_at", "2018-01-07 23:00:25.837668"]]
+  [1m[36m (52.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Alice Predovic I"], ["email", "hector@jenkins.biz"], ["kind_id", 3], ["rmk", "Distinctio fugit sequi ratione alias minima et quasi. Facilis ut animi qui. Dicta cum molestiae sunt voluptatem molestiae iure. Repudiandae sequi harum vero et ducimus qui impedit. Amet optio eveniet."], ["created_at", "2018-01-07 23:00:25.893913"], ["updated_at", "2018-01-07 23:00:25.893913"]]
+  [1m[36m (62.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Dario Nader"], ["email", "kaandra@kundemclaughlin.org"], ["kind_id", 1], ["rmk", "Fugit et quasi vel. Tempora sed voluptatem. Qui quod commodi sit inventore eius deserunt aut. Odit nemo et vel perspiciatis quia ut dolore. Nulla quo minima."], ["created_at", "2018-01-07 23:00:25.961608"], ["updated_at", "2018-01-07 23:00:25.961608"]]
+  [1m[36m (60.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Buck Goyette"], ["email", "tad.rosenbaum@denesik.net"], ["kind_id", 2], ["rmk", "Ut atque rerum eum corrupti qui. Pariatur voluptatem cum ut. Sint omnis quia voluptatem ea omnis amet. Quia quis omnis qui repellendus omnis adipisci error. Aperiam quo magnam quia ut sit ullam. Aliquam non consequatur vitae omnis occaecati."], ["created_at", "2018-01-07 23:00:26.027170"], ["updated_at", "2018-01-07 23:00:26.027170"]]
+  [1m[36m (62.1ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 20:00:51 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 205ms (Views: 196.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-01-07 20:00:53 -0300
+Processing by ContactsController#index as HTML
+  [1m[35mContact Load (0.2ms)[0m  SELECT "contacts".* FROM "contacts"
+  [1m[36mKind Load (0.2ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered contacts/_teste.html.erb (0.3ms)
+  Rendered contacts/index.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 109ms (Views: 102.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 20:01:00 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 50ms (Views: 49.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/kinds" for 127.0.0.1 at 2018-01-07 20:01:01 -0300
+Processing by KindsController#index as HTML
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT "kinds".* FROM "kinds"[0m
+  Rendered kinds/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 71ms (Views: 70.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 20:01:03 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 53.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-01-07 20:01:05 -0300
+Processing by ContactsController#index as HTML
+  [1m[35mContact Load (0.2ms)[0m  SELECT "contacts".* FROM "contacts"
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered contacts/_teste.html.erb (0.0ms)
+  Rendered contacts/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 68ms (Views: 67.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/contacts/1/edit" for 127.0.0.1 at 2018-01-07 20:01:19 -0300
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (0.1ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT "kinds".* FROM "kinds"
+  Rendered contacts/_form.html.erb (393.0ms)
+  Rendered contacts/edit.html.erb within layouts/application (394.1ms)
+Completed 200 OK in 445ms (Views: 440.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-01-07 20:01:22 -0300
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered contacts/_teste.html.erb (0.0ms)
+  Rendered contacts/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 20:01:25 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.0ms)
