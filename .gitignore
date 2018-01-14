@@ -9,6 +9,7 @@
 
 # Ignore the default SQLite database.
 db/*.sqlite3
+/home/gui/programacao/rails/Ruby/agenda/agenda/db/development.sqlite3
 db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.

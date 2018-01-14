@@ -6852,3 +6852,271 @@ Started GET "/" for 127.0.0.1 at 2018-01-07 20:01:25 -0300
 Processing by HomeController#index as HTML
   Rendered home/index.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 20:17:19 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 3830ms (Views: 3797.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/phones" for 127.0.0.1 at 2018-01-07 20:17:52 -0300
+Processing by PhonesController#index as HTML
+  [1m[35mPhone Load (0.1ms)[0m  SELECT "phones".* FROM "phones"
+  Rendered phones/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 94ms (Views: 65.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/phones/new" for 127.0.0.1 at 2018-01-07 20:17:54 -0300
+Processing by PhonesController#new as HTML
+  Rendered phones/_form.html.erb (528.9ms)
+  Rendered phones/new.html.erb within layouts/application (551.7ms)
+Completed 200 OK in 595ms (Views: 591.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/phones" for 127.0.0.1 at 2018-01-07 20:17:57 -0300
+Processing by PhonesController#index as HTML
+  [1m[36mPhone Load (0.1ms)[0m  [1mSELECT "phones".* FROM "phones"[0m
+  Rendered phones/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 20:17:59 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 53ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-01-07 20:18:01 -0300
+Processing by AddressesController#index as HTML
+  [1m[35mAddress Load (0.1ms)[0m  SELECT "addresses".* FROM "addresses"
+  Rendered addresses/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 69ms (Views: 66.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/addresses/new" for 127.0.0.1 at 2018-01-07 20:18:02 -0300
+Processing by AddressesController#new as HTML
+  Rendered addresses/_form.html.erb (2.9ms)
+  Rendered addresses/new.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 70ms (Views: 66.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2018-01-07 20:18:05 -0300
+Processing by AddressesController#index as HTML
+  [1m[36mAddress Load (0.1ms)[0m  [1mSELECT "addresses".* FROM "addresses"[0m
+  Rendered addresses/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 51ms (Views: 50.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 20:18:08 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/kinds" for 127.0.0.1 at 2018-01-07 20:18:09 -0300
+Processing by KindsController#index as HTML
+  [1m[35mKind Load (0.1ms)[0m  SELECT "kinds".* FROM "kinds"
+  Rendered kinds/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 71ms (Views: 69.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/kinds/new" for 127.0.0.1 at 2018-01-07 20:18:11 -0300
+Processing by KindsController#new as HTML
+  Rendered kinds/_form.html.erb (1.5ms)
+  Rendered kinds/new.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 83ms (Views: 82.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/kinds" for 127.0.0.1 at 2018-01-07 20:18:16 -0300
+Processing by KindsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gQYB04YDYgwjnl/+DjibmI+SlPBJQZS5OwXPTvkKMK/cDXe6azUeob+ao0x3qtxNMICDfoZIIY+k8NzUhNEXww==", "kind"=>{"description"=>"Outros"}, "commit"=>"Enviar"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "kinds" ("description", "created_at", "updated_at") VALUES (?, ?, ?)  [["description", "Outros"], ["created_at", "2018-01-07 23:18:16.143969"], ["updated_at", "2018-01-07 23:18:16.143969"]]
+  [1m[36m (109.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/kinds/4
+Completed 302 Found in 163ms (ActiveRecord: 109.6ms)
+
+
+Started GET "/kinds/4" for 127.0.0.1 at 2018-01-07 20:18:16 -0300
+Processing by KindsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mKind Load (0.2ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered kinds/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 111ms (Views: 47.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/kinds" for 127.0.0.1 at 2018-01-07 20:18:18 -0300
+Processing by KindsController#index as HTML
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT "kinds".* FROM "kinds"[0m
+  Rendered kinds/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 20:18:20 -0300
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 53ms (Views: 52.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-14 05:06:10 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 1122ms (Views: 1114.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-01-14 05:06:11 -0300
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-01-14 05:06:11 -0300
+
+
+Started GET "/assets/turbolinks.self-6d31c9800156926aa02076f914b9e3c031e14c4c2bff50ee018c18f77fbedfc1.js?body=1" for 127.0.0.1 at 2018-01-14 05:06:11 -0300
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-01-14 05:06:14 -0300
+Processing by ContactsController#index as HTML
+  [1m[35mContact Load (0.2ms)[0m  SELECT "contacts".* FROM "contacts"
+  [1m[36mKind Load (0.2ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered contacts/_teste.html.erb (0.3ms)
+  Rendered contacts/index.html.erb within layouts/application (32.6ms)
+Completed 200 OK in 113ms (Views: 107.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2018-01-14 05:06:17 -0300
+Processing by ContactsController#new as HTML
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT "kinds".* FROM "kinds"[0m
+  Rendered contacts/_form.html.erb (426.4ms)
+  Rendered contacts/new.html.erb within layouts/application (427.6ms)
+Completed 200 OK in 477ms (Views: 468.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-01-14 05:09:33 -0300
+Processing by ContactsController#index as HTML
+  [1m[35mContact Load (0.4ms)[0m  SELECT "contacts".* FROM "contacts"
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered contacts/_teste.html.erb (0.1ms)
+  Rendered contacts/index.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 71ms (Views: 67.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-01-14 05:09:35 -0300
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered contacts/_teste.html.erb (0.4ms)
+  Rendered contacts/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 73ms (Views: 71.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2018-01-14 05:14:14 -0300
+Processing by ContactsController#new as HTML
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  Rendered contacts/_form.html.erb (6.8ms)
+  Rendered contacts/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 64ms (Views: 51.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-01-14 05:14:21 -0300
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered contacts/_teste.html.erb (0.0ms)
+  Rendered contacts/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2018-01-14 05:15:14 -0300
+Processing by ContactsController#new as HTML
+  [1m[35mKind Load (0.1ms)[0m  SELECT "kinds".* FROM "kinds"
+  Rendered contacts/_form.html.erb (3.4ms)
+  Rendered contacts/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2018-01-14 05:15:57 -0300
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lV57mfUgbrg2kHHLNF6rgpw9GIIALF3Oaut8bY4NCnzdg6bIDegB5KtvJF/6TRilRFgqSG2K6TgATkEc/jBEaQ==", "contact"=>{"nome"=>"Seu Ze", "email"=>"rua sem nome", "kind_id"=>"1", "address_attributes"=>{"street"=>"Rua qualquer", "city"=>"Cidade qualuquer", "state"=>"Estado qualquer"}, "rmk"=>"obs.... bla bla bla "}, "commit"=>"Enviar"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "contacts" ("nome", "email", "kind_id", "rmk", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["nome", "Seu Ze"], ["email", "rua sem nome"], ["kind_id", 1], ["rmk", "obs.... bla bla bla "], ["created_at", "2018-01-14 08:15:57.718413"], ["updated_at", "2018-01-14 08:15:57.718413"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "addresses" ("street", "city", "state", "contact_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["street", "Rua qualquer"], ["city", "Cidade qualuquer"], ["state", "Estado qualquer"], ["contact_id", 11], ["created_at", "2018-01-14 08:15:57.719863"], ["updated_at", "2018-01-14 08:15:57.719863"]]
+  [1m[35m (202.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/contacts/11
+Completed 302 Found in 209ms (ActiveRecord: 203.4ms)
+
+
+Started GET "/contacts/11" for 127.0.0.1 at 2018-01-14 05:15:57 -0300
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mContact Load (0.1ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered contacts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 139ms (Views: 135.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/contacts/11/edit" for 127.0.0.1 at 2018-01-14 05:16:00 -0300
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mContact Load (0.1ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mKind Load (0.2ms)[0m  SELECT "kinds".* FROM "kinds"
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."contact_id" = ? LIMIT 1[0m  [["contact_id", 11]]
+  Rendered contacts/_form.html.erb (7.1ms)
+  Rendered contacts/edit.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 65ms (Views: 63.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-01-14 05:16:03 -0300
+Processing by ContactsController#index as HTML
+  [1m[35mContact Load (0.2ms)[0m  SELECT "contacts".* FROM "contacts"
+  [1m[36mKind Load (0.1ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mKind Load (0.1ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "kinds".* FROM "kinds" WHERE "kinds"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered contacts/_teste.html.erb (0.0ms)
+  Rendered contacts/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 54ms (Views: 53.4ms | ActiveRecord: 0.5ms)
