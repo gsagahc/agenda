@@ -34,7 +34,8 @@
       </div>
       <div class="field">
          <%= f.label :state %><br>
-         <%= address_fields.text_field :state%>
+         <%= address_fields.select :state, options_for_states(@contact.address.state)%>
+
       </div>
    <%end%>
 
