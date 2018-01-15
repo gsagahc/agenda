@@ -14,13 +14,22 @@ namespace :utils do
       puts "Gerando endereços aleatórios..."
       Contact.all.each do |contact|
          Address.create!(
-          street:Faker::Address::
-          city:Faker::City::
-          state: Kind.all.sample,
-          contact:contact
+          street: Faker::Address.street_address ,
+          city: Faker::Address.city   ,
+          state: Faker::Address.state_abbr,
+          contact: contact
         ) 
       end   
-        puts "10 Contatos gerados com sucesso!"  
+       puts "Gerando telefones aleatórios..."
+        Contact.all.each do |contact|
+          Random.rand(1..5).times do |i|
+           Phone.create!(
+            phone: Faker::PhoneNumber.phone_number ,
+            contact: contact
+          ) 
+        end   
+          
   end
-
+  puts "Telefones gerados com sucesso!"  
+end
 end
