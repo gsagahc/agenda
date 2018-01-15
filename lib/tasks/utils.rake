@@ -15,7 +15,7 @@ namespace :utils do
       Contact.all.each do |contact|
          Address.create!(
           street:Faker::Address::
-          city: ,
+          city:Faker::City::
           state: Kind.all.sample,
           contact:contact
         ) 
